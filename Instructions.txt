@@ -1,0 +1,95 @@
+BEYOND PANDAS: BUILDING INTERACTIVE DATA ANALYTICS APPLICATIONS Student Practical Execution Guide
+
+1.  FILES REQUIRED
+
+-   Beyond_Pandas_Jupyter.ipynb — for local Jupyter Notebook.
+-   Beyond_Pandas_Colab.ipynb — for Google Colab.
+-   sales_data.csv — dataset used throughout the workshop.
+
+Extract the workshop ZIP before using the files. Choose either Jupyter or Colab; there is no need to execute both notebooks.
+
+2.  OPTION A: RUN USING JUPYTER NOTEBOOK
+
+3.  Install Python if it is not already installed: https://www.python.org/downloads/ (on Windows, select Add Python to PATH during installation).
+
+4.  Open Command Prompt or Terminal and install Jupyter if needed:
+
+        python -m pip install notebook
+
+5.  Keep Beyond_Pandas_Jupyter.ipynb and sales_data.csv in the same folder. Do not rename the CSV.
+
+6.  Open a terminal in that folder (on Windows, type cmd in the File Explorer address bar and press Enter).
+
+7.  Start Jupyter:
+
+        python -m notebook
+
+8.  Open Beyond_Pandas_Jupyter.ipynb in the browser and select a Python 3 kernel if prompted.
+
+9.  Execute the Install libraries cell first. Wait for installation to finish. Restart the kernel if prompted, then continue from the beginning.
+
+10. Execute each code cell in order using Shift + Enter. Observe the output before proceeding to the next cell.
+
+11. OPTION B: RUN USING GOOGLE COLAB
+
+12. Visit https://colab.research.google.com/ and sign in with a Google account.
+
+13. Choose File > Upload notebook and select Beyond_Pandas_Colab.ipynb.
+
+14. Click Connect to start the runtime. A CPU runtime is sufficient.
+
+15. Execute the Install libraries cell and wait for completion.
+
+16. Execute the dataset upload cell. When prompted, upload sales_data.csv. If the file already exists in the runtime, the upload prompt is skipped.
+
+17. Execute each remaining code cell in order using Shift + Enter or the play button beside the cell.
+
+18. Keep the runtime connected. If it resets, reinstall the libraries, upload the CSV again and rerun the earlier cells.
+
+19. PRACTICAL EXECUTION SEQUENCE
+
+-   Pandas: load, inspect, select, filter and summarize the dataset.
+-   Matplotlib: visualize regional and category sales.
+-   Plotly: explore interactive line, bar and scatter charts and sample datasets.
+-   Streamlit: create the first application and experiment with interactive widgets.
+-   Dashboard Step 1: load data and create the dashboard shell.
+-   Dashboard Step 2: add sidebar filters.
+-   Dashboard Step 3: filter records.
+-   Dashboard Step 4: calculate KPI metrics.
+-   Dashboard Step 5: create the category comparison chart.
+-   Dashboard Step 6: create the monthly sales trend.
+-   Dashboard Step 7: create the scatter chart and transaction table.
+-   Dashboard Step 8: download filtered data.
+-   Complete interactive sales dashboard.
+
+5.  HOW TO EXECUTE STREAMLIT TASKS
+
+6.  Execute the Streamlit application setup cell before running any Streamlit task.
+
+7.  Each task contains a %%writefile cell followed by a run_app(…) cell. Execute both cells in that order. The first creates a Python script; the second starts the application.
+
+8.  Wait for the embedded preview or click Open Streamlit application below the cell. In local Jupyter, the application is available at http://localhost:8501. In Colab, use the generated proxy link, not localhost.
+
+9.  Interact with the application before proceeding. Each new run_app(…) call stops the previous workshop server and starts the next stage. Earlier preview frames are not independent running apps.
+
+10. Repeat for the first app, widgets and all eight dashboard stages.
+
+11. Execute the Complete interactive sales dashboard section: first %%writefile app.py, then run_app(‘app.py’). Explore the final dashboard before running the last cell.
+
+12. Change region, category and date range. Observe changes to the KPIs, charts and table. Try the CSV download button.
+
+13. When finished, execute stop_app() in the Stop Streamlit server section.
+
+No separate terminal commands are needed to launch the Streamlit tasks from these notebooks.
+
+6.  TROUBLESHOOTING
+
+-   FileNotFoundError: verify that sales_data.csv is in the notebook working folder (Jupyter) or uploaded to the active runtime (Colab).
+-   ModuleNotFoundError: rerun the library installation cell in the active kernel.
+-   NameError: run the preceding cells in order.
+-   Blank Streamlit preview: click the generated application link. Colab proxy access and embedded previews depend on browser and runtime permissions. If the proxy fails, use the local Jupyter version.
+-   Port already in use: stop the earlier server using stop_app() if it belongs to this notebook, or close the other Streamlit application. Alternatively, change PORT = 8501 to an unused port such as 8502 in the setup cell and rerun it.
+-   Streamlit startup error: inspect streamlit_workshop.log in the working folder for details.
+-   Empty filtered results: select All or broaden the date range.
+
+IMPORTANT: Execute one cell at a time. Do not use Run All for the live practical, because successive Streamlit stages replace the previous application and the final cleanup cell stops the server.
